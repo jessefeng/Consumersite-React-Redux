@@ -3,8 +3,12 @@ var fs = require('fs');
 var fps = 60;
 var frames = [];
 
-for (var i =1; i < 7; i++) {
-    frames[frames.length] = fs.readFileSync(`./logoAnimate/frames/${i}.txt`, 'utf8');
+try {
+    for (var i =1; i < 7; i++) {
+        frames[frames.length] = fs.readFileSync(`./frames/${i}.txt`, 'utf8');
+    }
+}catch (e) {
+    console.log('No such file Exception' + e);
 }
 //frames[frames.length] = `Jing`;
 //frames[frames.length] = `Zhe`;
