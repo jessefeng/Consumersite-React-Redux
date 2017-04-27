@@ -1,14 +1,7 @@
 import React from 'react';
-import {
-    BrowserRouter as Router,
-    Route,
-    Link
-} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-
 import ProductList from 'Components/pages/searchResult/components/productsList/ProductList.jsx';
-import searchSubNav from 'Components/pages/searchResult/components/searchSubNav/searchSubNav.jsx';
 
 class ProductListingsPanel extends React.Component {
 
@@ -21,16 +14,13 @@ class ProductListingsPanel extends React.Component {
     render() {
         return (
          <div>
-             <Router>
                  <div>
                      <ul>
-                         <li><Link to="/state">State</Link></li>
-                         <li><Link to="/CityName">City Name</Link></li>
-                         <li><Link to="/StateImage">State Image</Link></li>
+                         <li>sort by name</li>
+                         <li>sort by category</li>
+                         <li>sort by year</li>
                      </ul>
-                     <Route path="/:stateID" component={searchSubNav}/>
                  </div>
-             </Router>
              <hr/>
              <div>
                  {this.renderAllList()}
@@ -41,6 +31,7 @@ class ProductListingsPanel extends React.Component {
 }
 
 ProductListingsPanel.propTypes = {
+    children: PropTypes.element,
     listingData: PropTypes.object.isRequired,
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 import './style/GlobalHeader.scss';
 
@@ -9,11 +9,15 @@ class GlobalHeader extends React.Component {
         return (
                 <header className="global-header">
                     <div className="global-header-container">
-                        <Link className="global-header-title  col-lg-6" to='/'><h1>Global Header</h1></Link>
+                        <h1><Link to='/'>Global Header</Link></h1>
                         <nav>
                             <ul className="global-header-NavLnk">
-                                <li><Link className="global-header-NavLnk-listItem" to="/searchresultpage">Search</Link></li>
-                                <li><Link className="global-header-NavLnk-listItem" to="/productdetailspage">Detail</Link></li>
+                                <li className="global-header-NavLnk-listItem">
+                                    <Link to='/searchresultpage'>Search</Link>
+                                </li>
+                                <li className="global-header-NavLnk-listItem">
+                                    <Link to='/registrationpage' >Sign Up</Link>
+                                </li>
                             </ul>
                         </nav>
                     </div>

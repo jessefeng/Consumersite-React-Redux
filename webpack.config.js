@@ -1,8 +1,7 @@
-/* eslint-disable */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 // Building Path and ENV ============================================================================================
 const srcDir = path.resolve(__dirname, 'src');
 const distDir = path.resolve(__dirname, 'dist');
@@ -34,6 +33,8 @@ const extractCSSModule = new ExtractTextPlugin({
 });
 
 
+//image asset url plugin
+const imageAssets = new CopyWebpackPlugin([ { from: './assets', to: 'assets' } ]);
 // webpack module ==============================================================================================
 module.exports = {
     entry: {
@@ -41,7 +42,8 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].[hash].js'
+        filename: '[name].[hash].js',
+        publicPath: '/'
     },
     resolve: {
         alias: {
@@ -61,7 +63,7 @@ module.exports = {
 
         ]
     },
-    plugins: [HTMLwebpackplugin, extractSASS, extractCSSModule, extractSCSSModule],
+    plugins: [HTMLwebpackplugin, extractSASS, extractCSSModule, extractSCSSModule, imageAssets],
     devServer: {
         contentBase: path.join(__dirname, "dist"),
         compress: true,

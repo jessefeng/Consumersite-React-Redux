@@ -1,9 +1,10 @@
 /* eslint-disable */
-import 'Style/globalStyleBase.scss';
+import 'Style/globalStyleBase.scss'
 import React from 'react';
 import ReactDom from 'react-dom';
-import App from 'Components/demo/App.jsx';
+import { Router, Redirect, browserHistory, hashHistory } from 'react-router';
+import RouteConfig from './router.js'
 
 
-ReactDom.render(<App />, document.getElementById('app'));
+ReactDom.render(<Router history={browserHistory} routes={RouteConfig} />, document.getElementById('app'));
 
