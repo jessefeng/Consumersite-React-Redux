@@ -4,5 +4,5 @@ import React from 'react';
 import ReactDom from 'react-dom';
 
 
-ReactDom.render(<div>Jingzhe Website</div>, document.getElementById('app'));
+ReactDom.render(<div>Welcome to Jingzhe Feng Website!</div>, document.getElementById('app'));
 
